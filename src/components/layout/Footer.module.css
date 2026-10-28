@@ -1,0 +1,346 @@
+.footer {
+  position: relative;
+  padding-top: clamp(70px, 8vw, 116px);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 118%, rgba(138, 19, 62, 0.3), transparent 68%),
+    var(--void);
+  overflow: clip;
+}
+
+.aura {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  width: min(100vw, 1100px);
+  aspect-ratio: 2 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(201, 249, 79, 0.08), transparent 66%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+/* ── final CTA ────────────────────────────────────────────── */
+
+.ctaBlock {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.6fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: end;
+  padding-bottom: clamp(34px, 5vw, 64px);
+}
+
+.ctaHeading {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.6vw, 5.6rem);
+  font-weight: 780;
+  line-height: 0.84;
+  letter-spacing: -0.058em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.ctaHeading span {
+  color: var(--acid);
+}
+
+.ctaBody {
+  margin-top: 20px;
+  max-width: 44ch;
+  font-size: clamp(0.9rem, 1.05vw, 1rem);
+  line-height: 1.62;
+  color: var(--ink-dim);
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ctaActions > a,
+.ctaActions > button {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.ctaNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.ctaNote span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--magenta);
+  box-shadow: 0 0 8px rgba(225, 122, 158, 0.7);
+}
+
+/* ── wordmark ─────────────────────────────────────────────── */
+
+.wordmark {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: clamp(10px, 1.4vw, 18px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  user-select: none;
+}
+
+.wordmark span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 14.2vw, 14rem);
+  font-weight: 800;
+  line-height: 0.76;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.wordmark em {
+  flex: none;
+  margin-bottom: 0.55em;
+  padding: 0.45em 0.6em 0.35em;
+  background: var(--acid);
+  color: var(--void);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: clamp(0.5rem, 0.8vw, 0.68rem);
+  letter-spacing: 0.13em;
+}
+
+/* ── link grid ────────────────────────────────────────────── */
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(24px, 3.4vw, 54px);
+  padding-block: clamp(34px, 4.4vw, 58px);
+}
+
+.col {
+  min-width: 0;
+}
+
+.colLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.colLinks button,
+.colLinks a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 0;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  text-align: left;
+  transition: color 0.25s, padding-left 0.3s var(--ease-out);
+}
+
+.colLinks button:hover,
+.colLinks a:hover {
+  color: var(--acid);
+  padding-left: 5px;
+}
+
+.colLinks span {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.facts div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ── bottom bar ───────────────────────────────────────────── */
+
+.bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-block: 18px 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.copyright {
+  min-width: 0;
+}
+
+.credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-dim);
+}
+
+.credit svg {
+  color: var(--acid);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  color: var(--ink-2);
+  transition: color 0.25s;
+}
+
+.top:hover {
+  color: var(--acid);
+}
+
+@media (max-width: 960px) {
+  .ctaBlock {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 30px;
+  }
+
+  .ctaActions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 520px;
+  }
+
+  .ctaActions > a,
+  .ctaActions > button {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 160px;
+  }
+
+  .ctaNote {
+    flex-basis: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ctaHeading {
+    font-size: clamp(2.05rem, 11.4vw, 3.2rem);
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaActions > a,
+  .ctaActions > button {
+    width: 100%;
+  }
+
+  .wordmark {
+    padding-block: 12px;
+  }
+
+  .wordmark span {
+    font-size: 16.6vw;
+    letter-spacing: -0.08em;
+  }
+
+  .wordmark em {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 28px;
+  }
+
+  .bottom {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .credit {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .copyright {
+    order: 1;
+  }
+
+  .top {
+    order: 2;
+    margin-left: auto;
+  }
+}

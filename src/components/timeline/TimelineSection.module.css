@@ -1,0 +1,462 @@
+.timeline {
+  position: relative;
+  padding-block: clamp(90px, 10vw, 150px);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 45% 40% at 8% 0%, rgba(201, 249, 79, 0.045), transparent 65%),
+    var(--void);
+  overflow: clip;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.7fr);
+  gap: clamp(26px, 5vw, 80px);
+  align-items: end;
+  padding-bottom: clamp(30px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+
+.heading {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.4vw, 6.3rem);
+  font-weight: 760;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.heading span {
+  color: var(--acid);
+}
+
+.headSide {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 6px;
+}
+
+.headCopy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.55vw, 1.4rem);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+
+.provisional {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.6;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.provisional svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--magenta);
+}
+
+/* ── progress rail ────────────────────────────────────────── */
+
+.rail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-block: 22px;
+}
+
+.railStart,
+.railEnd {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  flex: none;
+}
+
+.railLine {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.railSignal {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--acid), rgba(201, 249, 79, 0.2));
+  transform-origin: left center;
+}
+
+.railNode {
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  background: var(--void);
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: transparent;
+}
+
+/* ── month columns ────────────────────────────────────────── */
+
+.months {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.month {
+  position: relative;
+  padding: clamp(24px, 3vw, 38px) clamp(18px, 2.4vw, 34px) 12px;
+  border-left: 1px solid var(--line);
+  overflow: clip;
+}
+
+.month:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.month:last-child {
+  padding-right: 0;
+}
+
+.monthGhost {
+  position: absolute;
+  top: -0.05em;
+  right: 0;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 7vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 238, 227, 0.08);
+  pointer-events: none;
+}
+
+.month:last-child .monthGhost {
+  right: 0;
+  -webkit-text-stroke-color: rgba(225, 122, 158, 0.18);
+}
+
+.monthHead {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 22px;
+}
+
+.monthTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.monthCount {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.monthNote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--acid);
+}
+
+.list {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 10px;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 22px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--line-strong), var(--line) 70%, transparent);
+}
+
+.milestone {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 0 0 clamp(22px, 2.8vw, 34px) 0;
+}
+
+.node {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 11px;
+  height: 11px;
+  margin-top: 5px;
+  margin-left: 0;
+  background: var(--void);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.node span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  transition: background 0.3s;
+}
+
+.milestone:hover .node {
+  border-color: var(--acid);
+  transform: scale(1.15);
+}
+
+.milestone:hover .node span {
+  background: var(--acid);
+}
+
+.milestone[data-state="opening"] .node {
+  border-color: var(--acid);
+  box-shadow: 0 0 0 4px rgba(201, 249, 79, 0.1);
+}
+
+.milestone[data-state="opening"] .node span {
+  background: var(--acid);
+  box-shadow: 0 0 8px rgba(201, 249, 79, 0.8);
+}
+
+.milestoneBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 6px;
+}
+
+.dateLabel {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.milestone[data-state="opening"] .dateLabel {
+  color: var(--acid);
+}
+
+.phase {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(0.98rem, 1.35vw, 1.18rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.description {
+  margin-top: 7px;
+  font-size: 0.79rem;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 36ch;
+}
+
+.opening {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acid);
+}
+
+.opening span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--acid);
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* ── footer row ───────────────────────────────────────────── */
+
+.foot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 60px);
+  margin-top: clamp(18px, 2.4vw, 30px);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.footNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  max-width: 74ch;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.footNote svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--acid);
+}
+
+.footLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 3px;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.footLink:hover {
+  color: var(--acid);
+  border-color: var(--acid);
+}
+
+@media (max-width: 960px) {
+  .head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 24px;
+  }
+
+  .headSide {
+    max-width: 52ch;
+  }
+
+  .months {
+    grid-template-columns: 1fr;
+    border-top: 0;
+  }
+
+  .month,
+  .month:first-child,
+  .month:last-child {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 26px 0 18px;
+  }
+
+  .monthGhost {
+    font-size: clamp(4.5rem, 18vw, 8rem);
+    top: 0;
+  }
+
+  .description {
+    max-width: 56ch;
+  }
+
+  .foot {
+    flex-direction: column;
+  }
+
+  .rail {
+    padding-block: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: clamp(2.2rem, 11.5vw, 3.4rem);
+  }
+
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .phase {
+    text-align: left;
+  }
+
+  .railStart,
+  .railEnd {
+    display: none;
+  }
+
+  .monthTitle {
+    max-width: 76%;
+  }
+}

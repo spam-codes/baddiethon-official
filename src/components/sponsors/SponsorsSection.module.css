@@ -1,0 +1,380 @@
+.sponsors {
+  position: relative;
+  padding-block: clamp(90px, 10vw, 150px);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 44% 42% at 6% 4%, rgba(138, 19, 62, 0.24), transparent 68%),
+    var(--void);
+  overflow: clip;
+}
+
+.ghost {
+  position: absolute;
+  top: 4%;
+  right: -2vw;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 26vw, 24rem);
+  font-weight: 800;
+  line-height: 0.72;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 238, 227, 0.06);
+  pointer-events: none;
+  user-select: none;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.68fr);
+  gap: clamp(26px, 5vw, 80px);
+  align-items: end;
+  padding-bottom: clamp(30px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+
+.heading {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.4vw, 6.3rem);
+  font-weight: 760;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.heading span {
+  color: var(--magenta);
+}
+
+.headSide {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 6px;
+}
+
+.headCopy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.55vw, 1.4rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink-2);
+  max-width: 42ch;
+}
+
+.headMeta {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+/* ── sponsor wall ─────────────────────────────────────────── */
+
+.wall {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 20px);
+  padding-block: clamp(30px, 4vw, 48px) clamp(10px, 1.4vw, 18px);
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(230px, 26vw, 330px);
+  padding: clamp(16px, 2vw, 24px);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(170deg, rgba(242, 238, 227, 0.035), transparent 48%),
+    var(--void-2);
+  border: 1px dashed rgba(242, 238, 227, 0.2);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  transition: border-color 0.4s var(--ease-out), background 0.4s var(--ease-out);
+}
+
+.slot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(242, 238, 227, 0.022) 3px,
+    rgba(242, 238, 227, 0.022) 4px
+  );
+  opacity: 0.8;
+}
+
+.slot:hover {
+  border-color: rgba(225, 122, 158, 0.45);
+}
+
+.slot:hover .slotIndex {
+  -webkit-text-stroke-color: rgba(225, 122, 158, 0.45);
+}
+
+.slotTop {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.slotTop svg {
+  color: var(--magenta);
+}
+
+.slotIndex {
+  position: absolute;
+  right: 6%;
+  bottom: 2%;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 10vw, 9rem);
+  font-weight: 800;
+  line-height: 0.72;
+  letter-spacing: -0.07em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 238, 227, 0.1);
+  transition: -webkit-text-stroke-color 0.4s;
+  pointer-events: none;
+}
+
+.slotBody {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.slotBars {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.slotBars i {
+  display: block;
+  height: 5px;
+  background: rgba(242, 238, 227, 0.12);
+}
+
+.slotBars i:nth-child(1) {
+  width: 66%;
+}
+
+.slotBars i:nth-child(2) {
+  width: 42%;
+}
+
+.slotBars i:nth-child(3) {
+  width: 54%;
+}
+
+.slotState {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.slotFoot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ── briefing bar ─────────────────────────────────────────── */
+
+.note {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 3vw, 34px);
+  margin-top: clamp(4px, 0.8vw, 8px);
+  padding: clamp(18px, 2.2vw, 26px) clamp(18px, 2.4vw, 28px);
+  background: rgba(225, 122, 158, 0.06);
+  border: 1px solid rgba(225, 122, 158, 0.24);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+
+.noteLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.noteBody {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 76ch;
+}
+
+.noteCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: background 0.3s var(--ease-out), color 0.3s, border-color 0.3s;
+}
+
+.noteCta:hover {
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: var(--void);
+}
+
+/* ── populated sponsor card ───────────────────────────────── */
+
+.slotLink {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+}
+
+.sponsorLogo {
+  display: block;
+  margin-top: 8px;
+}
+
+.sponsorLogoImage {
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.7);
+  opacity: 0.85;
+}
+
+.sponsorName {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.sponsorDescription {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 960px) {
+  .head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 24px;
+  }
+
+  .headSide {
+    max-width: 52ch;
+  }
+
+  .wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .note {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .noteCta {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .wall {
+    grid-template-columns: 1fr;
+  }
+
+  .slot {
+    min-height: 210px;
+  }
+
+  .slotBody {
+    padding-top: 26px;
+  }
+
+  .noteCta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .foot span:last-child {
+    display: none;
+  }
+}
